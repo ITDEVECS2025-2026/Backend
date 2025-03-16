@@ -12,11 +12,6 @@
         "dest": "src/main.ts",
         "methods": ["GET", "POST", "PUT", "DELETE"]
       }
-    ],
-    "build": {
-      "env": {
-        "DATABASE_URL": "@database_url"
-      }
-    }
+    ]    
   }
   
