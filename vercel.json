@@ -14,7 +14,7 @@
       },
       {
         "src": "/docs/(.*)",
-        "dest": "src/main.ts",
+        "dest": "dist/main.js",
         "methods": ["GET", "POST", "PUT", "DELETE"]
       }
     ]    
