@@ -3,10 +3,7 @@
     "builds": [
       {
         "src": "src/main.ts",
-        "use": "@vercel/node",
-        "env": {
-            "DATABASE_URL": "@database_url"
-          },
+        "use": "@vercel/node",        
         "scripts": {
           "build": "prisma generate"
         }
