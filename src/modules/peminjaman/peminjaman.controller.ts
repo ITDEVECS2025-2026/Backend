@@ -6,12 +6,10 @@ export class PeminjamanController {
     constructor (private peminjamanServce: PeminjamanService) {}
 
     @Get()
-    getPeminjaman(): string {
-        this.peminjamanServce.createPeminjaman({
+    async getPeminjaman(): Promise<string> {
+        let a =  await this.peminjamanServce.createPeminjaman({
             email: "m@m.com",
-        }).catch((e) => {
-            console.log(e)
         })
-        return "ok"
+        return a.email
     }
 }
