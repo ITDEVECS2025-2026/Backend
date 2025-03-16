@@ -17,9 +17,6 @@
       "env": {
         "DATABASE_URL": "@database_url"
       }
-    },
-    "scripts": {
-      "build": "prisma generate"
-    }
+    },    
   }
   
