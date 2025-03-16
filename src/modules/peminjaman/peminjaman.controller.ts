@@ -9,6 +9,8 @@ export class PeminjamanController {
     getPeminjaman(): string {
         this.peminjamanServce.createPeminjaman({
             email: "m@m.com",
+        }).catch((e) => {
+            console.log(e)
         })
         return "ok"
     }
