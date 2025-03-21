@@ -33,11 +33,11 @@ model DataBarang {
   kodeBarang     String
   nama           String
   type           jenis_barang
-  foto           String
+  foto           String?
   jumlah         Int
   tersedia       Int
   posisiBarang   String
-  keterangan     String
+  keterangan     String?
   createdAt      DateTime         @default(now())
   updatedAt      DateTime         @updatedAt
   detailBuku     DetailBuku?
