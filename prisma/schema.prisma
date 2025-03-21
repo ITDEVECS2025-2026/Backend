@@ -13,8 +13,124 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model Peminjaman {
-  id    String  @id @default(auto()) @map("_id") @db.ObjectId
-  email String
-  name  String?
+model User {
+  id               String             @id @default(auto()) @map("_id") @db.ObjectId
+  email            String             @unique
+  username         String
+  fullname         String
+  nrp              BigInt
+  password         String
+  type             user_type
+  createdAt        DateTime           @default(now())
+  updatedAt        DateTime           @updatedAt
+  DataPeminjaman   DataPeminjaman[]
+  Pemesanan3dPrint Pemesanan3dPrint[]
+  Pembayaran       Pembayaran[]
+}
+
+model DataBarang {
+  id             String           @id @default(auto()) @map("_id") @db.ObjectId
+  kodeBarang     String
+  nama           String
+  type           jenis_barang
+  foto           String
+  jumlah         Int
+  tersedia       Int
+  posisiBarang   String
+  keterangan     String
+  createdAt      DateTime         @default(now())
+  updatedAt      DateTime         @updatedAt
+  detailBuku     DetailBuku?
+  detailAlat     DetailAlat?
+  DataPeminjaman DataPeminjaman[]
+}
+
+model DetailBuku {
+  id         String     @id @default(auto()) @map("_id") @db.ObjectId
+  dataBarang DataBarang @relation(fields: [idBarang], references: [id])
+  idBarang   String     @unique @db.ObjectId
+  penulis    String
+  edisi      Int
+  penerbit   String
+  createdAt  DateTime   @default(now())
+  updatedAt  DateTime   @updatedAt
+}
+
+model DetailAlat {
+  id              String     @id @default(auto()) @map("_id") @db.ObjectId
+  dataBarang      DataBarang @relation(fields: [idBarang], references: [id])
+  idBarang        String     @unique @db.ObjectId
+  merek           String
+  tahunPerolehan  Int
+  nilaiPerolehan  BigInt
+  manualOperation String
+  available       Boolean
+  pemutihan       Boolean
+  createdAt       DateTime   @default(now())
+  updatedAt       DateTime   @updatedAt
+}
+
+model Pemesanan3dPrint {
+  id           String      @id @default(auto()) @map("_id") @db.ObjectId
+  user         User        @relation(fields: [idPemesan], references: [id])
+  idPemesan    String      @unique @db.ObjectId
+  pembayaran   Pembayaran? @relation(fields: [idPembayaran], references: [id])
+  idPembayaran String      @unique @db.ObjectId
+  file         String
+  keterangan   String
+  createdAt    DateTime    @default(now())
+  updatedAt    DateTime    @updatedAt
+}
+
+model DataPeminjaman {
+  id                  String            @id @default(auto()) @map("_id") @db.ObjectId
+  tanggalPeminjaman   DateTime
+  barang              DataBarang        @relation(fields: [idBarang], references: [id])
+  idBarang            String            @db.ObjectId
+  user                User              @relation(fields: [idPeminjam], references: [id])
+  idPeminjam          String            @db.ObjectId
+  status              status_peminjaman
+  tanggalPengembalian DateTime
+  createdAt           DateTime          @default(now())
+  updatedAt           DateTime          @updatedAt
+}
+
+model Pembayaran {
+  id               String            @id @default(auto()) @map("_id") @db.ObjectId
+  user             User              @relation(fields: [idUser], references: [id])
+  idUser           String            @db.ObjectId
+  nominal          BigInt
+  buktiPembayaran  String
+  jenisPembayaran  jenis_pembayaran
+  statusPembayaran status_pembayaran
+  createdAt        DateTime          @default(now())
+  updatedAt        DateTime          @updatedAt
+  pemesanan3dPrint Pemesanan3dPrint?
+}
+
+enum jenis_pembayaran {
+  cash
+  shoppe_pay
+}
+
+enum status_pembayaran {
+  pending
+  success
+  failed
+}
+
+enum user_type {
+  user
+  aslab
+}
+
+enum jenis_barang {
+  buku
+  alat
+}
+
+enum status_peminjaman {
+  masih_dipinjam
+  sudah_dikembalikan
+  overdue
 }
