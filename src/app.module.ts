@@ -3,11 +3,10 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { PeminjamanModule } from './modules/peminjaman/peminjaman.module';
 import { PrismaModule } from './modules/prisma/prisma.module';
-import { ServeStaticModule } from '@nestjs/serve-static';
-import { join } from 'path';
+import { SwaggerModule } from '@nestjs/swagger';
 
 @Module({
-  imports: [PeminjamanModule, PrismaModule],
+  imports: [PeminjamanModule, PrismaModule, SwaggerModule],
   controllers: [AppController],
   providers: [AppService],
   

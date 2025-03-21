@@ -1,6 +1,7 @@
 import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
 import { SwaggerModule, DocumentBuilder } from '@nestjs/swagger';
+import * as basicAuth from 'express-basic-auth';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
@@ -9,6 +10,14 @@ async function bootstrap() {
     origin: '*',
     methods: ['GET', 'POST', 'PUT', 'DELETE'],
   });
+
+  app.use(
+    ['/docs'], // Hanya mengamankan endpoint Swagger
+    basicAuth({
+      users: { 'admin': 'password123' }, // Ganti dengan username & password yang kamu mau
+      challenge: true, // Memunculkan pop-up autentikasi
+    }),
+  );
 
   const config = new DocumentBuilder()
   .setTitle('ECS API')  

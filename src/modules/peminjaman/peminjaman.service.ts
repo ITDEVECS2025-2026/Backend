@@ -6,7 +6,7 @@ import {Prisma, DataPeminjaman} from "@prisma/client";
 export class PeminjamanService {
     constructor(private prisma: PrismaService) {}
 
-    async createPeminjaman(data: Prisma.DataPeminjamanCreateInput): Promise<DataPeminjaman> {
+    async createPeminjaman( data: Prisma.DataPeminjamanCreateInput): Promise<DataPeminjaman> {      
         return this.prisma.dataPeminjaman.create({
           data,          
         });
