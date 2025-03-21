@@ -6,7 +6,7 @@ import { PrismaModule } from './modules/prisma/prisma.module';
 import { SwaggerModule } from '@nestjs/swagger';
 
 @Module({
-  imports: [PeminjamanModule, PrismaModule, SwaggerModule],
+  imports: [PeminjamanModule, PrismaModule],
   controllers: [AppController],
   providers: [AppService],
   
