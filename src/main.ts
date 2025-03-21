@@ -14,7 +14,7 @@ async function bootstrap() {
   app.use(
     ['/docs'], // Hanya mengamankan endpoint Swagger
     basicAuth({
-      users: { 'admin': 'password123' }, // Ganti dengan username & password yang kamu mau
+      users: { 'admin': 'admin' }, // Ganti dengan username & password yang kamu mau
       challenge: true, // Memunculkan pop-up autentikasi
     }),
   );
