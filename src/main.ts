@@ -12,13 +12,13 @@ async function bootstrap() {
     methods: ['GET', 'POST', 'PUT', 'DELETE'],
   });
 
-  app.use(
-    ['/docs'], // Hanya mengamankan endpoint Swagger
-    basicAuth({
-      users: { 'admin': 'admin' }, // Ganti dengan username & password yang kamu mau
-      challenge: true, // Memunculkan pop-up autentikasi
-    }),
-  );
+  // app.use(
+  //   ['/docs'], // Hanya mengamankan endpoint Swagger
+  //   basicAuth({
+  //     users: { 'admin': 'admin' }, // Ganti dengan username & password yang kamu mau
+  //     challenge: true, // Memunculkan pop-up autentikasi
+  //   }),
+  // );
 
   const config = new DocumentBuilder()
   .setTitle('ECS API')  
