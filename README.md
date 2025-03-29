@@ -75,8 +75,7 @@ src      - folder utama untuk menyimpan file source code
 ## API response ketika sukses
 ```json
 {
-  "success": true,
-  "error_code": null,
+  "success": true,  
   "message": "success message",
   "data": {
     // data yang dikembalikan
