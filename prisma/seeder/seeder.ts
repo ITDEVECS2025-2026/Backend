@@ -84,8 +84,8 @@ async function createDataBarang2(barang: any, posisi: string){
       nama: barang[3],
       type: 'alat',
       posisiBarang: String(barang[6])?? posisi,
-      jumlah: barang[5],
-      tersedia: barang[5]
+      jumlah: Number(barang[5] ?? 0),
+      tersedia: Number(barang[5] ?? 0)
     },
   });
 
