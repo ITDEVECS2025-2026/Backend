@@ -1,74 +1,59 @@
-dode
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="200" alt="Nest Logo" /></a>
-</p>
+# 📚 MANUAL BOOK
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
+## 🔧 BE Setup
+- 📦 Pastikan [nodejs](https://nodejs.org/en/) sudah terinstall di komputer
+- 🔄 Pastikan [git](https://git-scm.com/) sudah terinstall di komputer
+- 💻 Pastikan [vscode](https://code.visualstudio.com/) sudah terinstall di komputer, bebas menggunakan editor lain
+- 🧩 Bisa menginstall extension [Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode) dan [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint) di vscode untuk membantu format kode
+- 🗄️ Pastikan sudah mendatar dan sudah di invite di [MongoDB Atlas](https://www.mongodb.com/atlas/database) untuk database
+- 📥 Clone repository ini
+- 📂 Pindah ke folder Backend
+- ⚙️ Install dependency dengan perintah `npm install`
+- 📄 Copy .env.example ke .env
+- ✏️ Ubah isi .env sesuai dengan database yang digunakan (secret key lihat di atlas)
+- 🔄 Jalankan perintah `npx prisma migrate` untuk migrasi database atau pertama kali setup
+- 🚀 Jalankan perintah `npm run start:dev` untuk menjalankan server
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://coveralls.io/github/nestjs/nest?branch=master" target="_blank"><img src="https://coveralls.io/repos/github/nestjs/nest/badge.svg?branch=master#9" alt="Coverage" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
+## 📋 Panduan mengerjakan task
+- 👀 Cek task di clickup dan di [Github Issues](https://github.com/ITDEVECS2025-2026/Backend/issues) untuk detail task yang diberikan
+- 🌿 Pastikan membuat branch baru dengan nama sesuai dengan task yang diberikan, misalnya `menambahkan-fitur-x`
+- 🔍 Pastikan branch diambil dari branch **`dev`**
+  > 📝 **Note:** pastikan branch `dev` sudah diupdate dengan branch `main` sebelum membuat branch baru
+- ✅ Setelah selesai mengerjakan task, pastikan untuk melakukan pull request ke branch **`dev`**
+- 📝 Pastikan untuk menambahkan deskripsi pada pull request yang menjelaskan perubahan yang dilakukan
+- 👥 Tunggu review dari rekan tim sebelum melakukan merge ke branch **`dev`**
 
-## Description
+## 💬 Panduan penamaan commit
+- ✨ Gunakan format `feat: <deskripsi>` untuk menandai penambahan fitur baru.
+- 🐛 Gunakan format `fix: <deskripsi>` untuk menandai perbaikan bug.
+- 📝 Gunakan format `docs: <deskripsi>` untuk menandai perubahan pada dokumentasi.
+- 💄 Gunakan format `style: <deskripsi>` untuk menandai perubahan pada gaya kode (misalnya, format, spasi, dll) yang tidak mempengaruhi logika.
+- ♻️ Gunakan format `refactor: <deskripsi>` untuk menandai perubahan pada kode yang tidak mempengaruhi fungsionalitas tetapi meningkatkan struktur atau pembacaan kode.
+- 🧪 Gunakan format `test: <deskripsi>` untuk menandai penambahan atau perubahan pada pengujian.
+- 🔧 Gunakan format `chore: <deskripsi>` untuk menandai perubahan yang tidak termasuk dalam kategori di atas, seperti pembaruan dependensi atau tugas pemeliharaan lainnya.
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+## 🌿 Branch yang perlu diperhatikan
+| Branch | Deskripsi |
+|--------|-----------|
+| 🔨 dev    | branch untuk development |
+| 🚀 main   | branch untuk versi stabil yang siap di deploy |
 
-## Installation
 
-```bash
-$ npm install
+
+## 📁 BE Folder Structure
+yang perlu diperhatikan sementara
+```
+prisma   - folder untuk menyimpan file schema.prisma dan migrasi database
+src      - folder utama untuk menyimpan file source code
+  ├── modules - folder untuk menyimpan file module
 ```
 
-## Running the app
+## 🛠️ BE tools yang digunakan
+- 🗄️ [Prisma](https://www.prisma.io/docs/) - ORM untuk database
+- 🏗️ [NestJS](https://docs.nestjs.com/) - framework untuk membangun aplikasi backend
+- 📜 [TypeScript](https://www.typescriptlang.org/) - bahasa pemrograman yang digunakan
+- 🗃️ [MongoDB](https://www.mongodb.com/) - database yang digunakan
+- 🧪 [Postman](https://www.postman.com/) - tools untuk testing API , bisa juga menggunakan [Insomnia](https://insomnia.rest/) atau [Thunder Client](https://marketplace.visualstudio.com/items?itemName=rangav.vscode-thunder-client) di vscode
 
-```bash
-# development
-$ npm run start
-
-# watch mode
-$ npm run start:dev
-
-# production mode
-$ npm run start:prod
-```
-
-## Test
-
-```bash
-# unit tests
-$ npm run test
-
-# e2e tests
-$ npm run test:e2e
-
-# test coverage
-$ npm run test:cov
-```
-
-## Support
-
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
-
-## Stay in touch
-
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
-
-## License
-
-Nest is [MIT licensed](LICENSE).
+## 🔐 BE Environment Variables
+- `DATABASE_URL` - URL untuk menghubungkan ke database
