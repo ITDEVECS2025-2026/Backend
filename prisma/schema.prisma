@@ -30,7 +30,7 @@ model User {
 
 model DataBarang {
   id             String           @id @default(auto()) @map("_id") @db.ObjectId
-  kodeBarang     String
+  kodeBarang     String?
   nama           String
   type           jenis_barang
   foto           String?
@@ -48,22 +48,24 @@ model DataBarang {
 model DetailBuku {
   id         String     @id @default(auto()) @map("_id") @db.ObjectId
   dataBarang DataBarang @relation(fields: [idBarang], references: [id])
-  idBarang   String     @unique @db.ObjectId
-  penulis    String
-  edisi      Int
-  penerbit   String
+  idBarang   String     @db.ObjectId
+  penulis    String?
+  edisi      Int?
+  jilid      Int?
   createdAt  DateTime   @default(now())
   updatedAt  DateTime   @updatedAt
+
+  @@unique([idBarang], name: "unique_buku")
 }
 
 model DetailAlat {
   id              String     @id @default(auto()) @map("_id") @db.ObjectId
   dataBarang      DataBarang @relation(fields: [idBarang], references: [id])
   idBarang        String     @unique @db.ObjectId
-  merek           String
-  tahunPerolehan  Int
-  nilaiPerolehan  BigInt
-  manualOperation String
+  merek           String?
+  tahunPerolehan  Int?
+  nilaiPerolehan  BigInt?
+  manualOperation String?
   available       Boolean
   pemutihan       Boolean
   createdAt       DateTime   @default(now())
