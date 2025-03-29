@@ -64,7 +64,7 @@ src      - folder utama untuk menyimpan file source code
 ## API response ketika ada error
 ```json
 {
-  "success": true,
+  "success": false,
   "error_code": 23, //kode error untuk mempermudah debugging, random tapi usahaan angan sama dengan error lainnya
   "message": "error message",
   "data": null
