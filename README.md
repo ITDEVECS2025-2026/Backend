@@ -41,11 +41,14 @@
 
 
 ## 📁 BE Folder Structure
-yang perlu diperhatikan sementara
+yang perlu diperhatikan secara umum [referensi](https://docs.nestjs.com/modules)
 ```
 prisma   - folder untuk menyimpan file schema.prisma dan migrasi database
 src      - folder utama untuk menyimpan file source code
-  ├── modules - folder untuk menyimpan file module
+  ├── modules - folder untuk menyimpan sub module 
+  ├──── .controller.ts - file yang menangani request dan response dari client
+  ├──── .service.ts - file untuk menyimpan logika dari program dan menghubungkan ke repository
+  ├──── .module.ts - file untuk mendeklarasikan module dan menghubungkan controller dan service
 ```
 
 ## 🛠️ BE tools yang digunakan
@@ -57,3 +60,13 @@ src      - folder utama untuk menyimpan file source code
 
 ## 🔐 BE Environment Variables
 - `DATABASE_URL` - URL untuk menghubungkan ke database
+
+## API response ketika ada error
+```json
+{
+  "success": true,
+  "error_code": 23, //kode error untuk mempermudah debugging, random tapi usahaan angan sama dengan error lainnya
+  "message": "error message",
+  "data": null
+}
+```
