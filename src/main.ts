@@ -2,6 +2,22 @@ import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
 import { SwaggerModule, DocumentBuilder } from '@nestjs/swagger';
 import * as basicAuth from 'express-basic-auth'
+import { ArgumentsHost, Catch, ExceptionFilter } from '@nestjs/common';
+import { ZodError } from 'zod';
+
+@Catch(ZodError)
+class ZodFilter<T extends ZodError> implements ExceptionFilter {
+  catch(exception: T, host: ArgumentsHost) {
+    const ctx = host.switchToHttp();
+    const response = ctx.getResponse();
+    const status = 400;
+    response.status(status).json({
+      errors: exception.errors,
+      message: exception.message,
+      statusCode: status,
+    });
+  }
+}
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
@@ -17,8 +33,9 @@ async function bootstrap() {
       users: { 'admin': 'admin' }, // Ganti dengan username & password yang kamu mau
       challenge: true
     })
-
   );
+
+  app.useGlobalFilters(new ZodFilter())
 
   const config = new DocumentBuilder()
     .setTitle('ECS API')
