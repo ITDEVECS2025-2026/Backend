@@ -12,7 +12,7 @@ export class DemoZodController {
   @Post("/test")
   post(@Body(new ZodPipe(schema)) body) {
     return JSON.stringify({
-      "body": body.name
+      body: body.name
     })
   }
 
