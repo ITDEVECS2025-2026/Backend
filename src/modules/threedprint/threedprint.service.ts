@@ -1,5 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { PrismaService } from '../prisma/prisma.service';
+import { CreateThreeDPrintDto } from './create-threedprint.dto';
 
 @Injectable()
 export class ThreedprintService {
@@ -21,6 +22,22 @@ export class ThreedprintService {
                 nama: order.user?.fullname || 'Unknown',
                 status_pembayaran: order.pembayaran?.statusPembayaran || 'Unknown',
             })),
+        };
+    }
+    async createOrder(data: CreateThreeDPrintDto) {
+        const order = await this.prisma.pemesanan3dPrint.create({
+          data: {
+            idPemesan: data.idPemesan,
+            idPembayaran: data.idPembayaran,
+            file: data.file,
+            keterangan: data.keterangan,
+          },
+        });
+    
+        return {
+          success: true,
+          message: 'Berhasil membuat pesanan 3D print.',
+          data: order,
         };
     }
 }
