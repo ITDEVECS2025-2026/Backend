@@ -1,9 +1,24 @@
 import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
 import { SwaggerModule, DocumentBuilder } from '@nestjs/swagger';
-import basicAuth from 'express-basic-auth';
 import { WINSTON_MODULE_NEST_PROVIDER } from 'nest-winston';
+import * as basicAuth from 'express-basic-auth'
+import { ArgumentsHost, Catch, ExceptionFilter } from '@nestjs/common';
+import { ZodError } from 'zod';
 
+@Catch(ZodError)
+class ZodFilter<T extends ZodError> implements ExceptionFilter {
+  catch(exception: T, host: ArgumentsHost) {
+    const ctx = host.switchToHttp();
+    const response = ctx.getResponse();
+    const status = 400;
+    response.status(status).json({
+      errors: exception.errors,
+      message: exception.message,
+      statusCode: status,
+    });
+  }
+}
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
@@ -16,18 +31,20 @@ async function bootstrap() {
     methods: ['GET', 'POST', 'PUT', 'DELETE'],
   });
 
-  // app.use(
-  //   ['/docs'], // Hanya mengamankan endpoint Swagger
-  //   basicAuth({
-  //     users: { 'admin': 'admin' }, // Ganti dengan username & password yang kamu mau
-  //     challenge: true, // Memunculkan pop-up autentikasi
-  //   }),
-  // );
+  app.use(
+    ['/docs'], // Hanya mengamankan endpoint Swagger
+    basicAuth({
+      users: { 'admin': 'admin' }, // Ganti dengan username & password yang kamu mau
+      challenge: true
+    })
+  );
+
+  app.useGlobalFilters(new ZodFilter())
 
   const config = new DocumentBuilder()
-  .setTitle('ECS API')  
-  .setVersion('1.0')    
-  .build();
+    .setTitle('ECS API')
+    .setVersion('1.0')
+    .build();
   const documentFactory = () => SwaggerModule.createDocument(app, config);
   SwaggerModule.setup('/docs', app, documentFactory, {
     customSiteTitle: "Api Docs",
