@@ -1,30 +1,13 @@
 import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
 import { SwaggerModule, DocumentBuilder } from '@nestjs/swagger';
-import { WINSTON_MODULE_NEST_PROVIDER } from 'nest-winston';
 import * as basicAuth from 'express-basic-auth'
-import { ArgumentsHost, Catch, ExceptionFilter } from '@nestjs/common';
-import { ZodError } from 'zod';
+import { ZodFilter } from './zod/zod_filter';
 
-@Catch(ZodError)
-class ZodFilter<T extends ZodError> implements ExceptionFilter {
-  catch(exception: T, host: ArgumentsHost) {
-    const ctx = host.switchToHttp();
-    const response = ctx.getResponse();
-    const status = 400;
-    response.status(status).json({
-      errors: exception.errors,
-      message: exception.message,
-      statusCode: status,
-    });
-  }
-}
+
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
-
-  const logger = app.get(WINSTON_MODULE_NEST_PROVIDER);
-  app.useLogger(logger);
 
   app.enableCors({
     origin: '*',

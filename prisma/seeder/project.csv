@@ -1,0 +1,31 @@
+Nama Proyek,Gambar(link),Deskripsi,RoleECS 
+Scoreboard,"
+
+https://itdevecs2025-2026.github.io/Images-frontend/Scoreboard(1).jpeg
+https://itdevecs2025-2026.github.io/Images-frontend/Scoreboard(2).jpeg
+https://itdevecs2025-2026.github.io/Images-frontend/Scoreboard(3).jpeg
+https://itdevecs2025-2026.github.io/Images-frontend/Scoreboard(4).jpeg
+
+",Developed the electrical and PCB schematic of a digital scoreboard system. Integrated the hardware with an IoT-based web server and connected it to the Strike application (collaborating partner). The system enables real-time score updates and management via a web interface.,Colaborator Researcher / Hardware Designer and Executor
+PengusirBurung,"
+https://itdevecs2025-2026.github.io/Images-frontend/[RISPRO LPDP].webp
+https://itdevecs2025-2026.github.io/Images-frontend/[RISPRO LPDP]2.webp
+https://itdevecs2025-2026.github.io/Images-frontend/[RISPRO LPDP]3.webp
+https://itdevecs2025-2026.github.io/Images-frontend/[RISPRO LPDP]4.webp
+https://itdevecs2025-2026.github.io/Images-frontend/[RISPRO LPDP]5.webp
+https://itdevecs2025-2026.github.io/Images-frontend/PengusirBurung(2).jpeg
+https://itdevecs2025-2026.github.io/Images-frontend/PengusirBurung(3).jpeg
+https://itdevecs2025-2026.github.io/Images-frontend/PengusirBurung(4).jpeg     https://itdevecs2025-2026.github.io/Images-frontend/PengusirBurung(1).jpeg",Designed both mechanical and electrical schematics of a bird repellent system for agricultural fields. The system uses high-frequency sound emitters and a noisy rattling mechanism made of tin cans. Detection is supported by ESP32-based IoT integration with cameras placed at the corners of the field.,Community Service Program / Designer and Executor
+SmartTraktor,"https://itdevecs2025-2026.github.io/Images-frontend/[RISET SMART TRACTOR].webp
+https://itdevecs2025-2026.github.io/Images-frontend/[RISET SMART TRACTOR]2.webp
+https://itdevecs2025-2026.github.io/Images-frontend/[RISET SMART TRACTOR]3.webp
+https://itdevecs2025-2026.github.io/Images-frontend/[RISET SMART TRACTOR]4.webp
+https://itdevecs2025-2026.github.io/Images-frontend/Traktor(2).jpeg https://itdevecs2025-2026.github.io/Images-frontend/Traktor(1).jpeg","Built an autonomous smart tractor system equipped with image processing algorithms to distinguish between rice plants and unwanted vegetation or pests. The vehicle can navigate fields using motor control logic (e.g., braking, turning) for autonomous operation.",Researcher / Executor
+Drone Penyerbukan Kelapa Sawit ,,"A collaborative project involving the development of a drone system for pollination in palm oil plantations, enhancing productivity in hard-to-reach areas.",External Colaborator Researcher / Hardware and Software Designer and Executor
+3 phase motor ,"
+https://itdevecs2025-2026.github.io/Images-frontend/MotorInduksi(1).jpeg
+https://itdevecs2025-2026.github.io/Images-frontend/MotorInduksi(2).jpeg
+","A research initiative focused on the analysis, design, and control of a three-phase motor for educational and industrial applications.",Researcher 
+Autonomous Vehicle,"https://itdevecs2025-2026.github.io/Images-frontend/AutonomousVehicle(1).jpeg
+
+","Designed and implemented an autonomous ground vehicle equipped with an Inertial Measurement Unit (IMU) for motion sensing. The system features a localization algorithm to estimate the vehicle's position in real-time, a path planning module for route optimization, and a control system capable of executing directional commands such as left/right turns and braking. The vehicle is capable of navigating dynamic environments with minimal human intervention.",Researcher
